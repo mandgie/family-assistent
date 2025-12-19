@@ -6,15 +6,12 @@
 PORT=4173
 APP_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Disable screen blanking/power saving
-xset s off
-xset s noblank
-xset -dpms
+# Disable screen blanking/power saving (X11 only, ignore errors on Wayland)
+xset s off 2>/dev/null
+xset s noblank 2>/dev/null
+xset -dpms 2>/dev/null
 
-# Hide cursor after 0.5 seconds of inactivity
-unclutter -idle 0.5 -root &
-
-# Wait for X to be ready
+# Wait for display to be ready
 sleep 2
 
 # Start the preview server in background
@@ -35,6 +32,9 @@ chromium-browser \
   --no-first-run \
   --start-fullscreen \
   --autoplay-policy=no-user-gesture-required \
+  --cursor-style=none \
+  --enable-features=UseOzonePlatform \
+  --ozone-platform=wayland \
   "http://localhost:$PORT"
 
 # Cleanup when Chromium closes

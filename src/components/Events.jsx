@@ -10,7 +10,7 @@ const TYRA_CONFIG = {
   _JavaScriptKey: 'EkyBfKUqQN8j17ePBmYssFXsAdxNEcIE',
   _ClientVersion: 'js3.5.1',
   _InstallationId: '81d7e51e-5352-4aaa-8f60-c314dc692a73',
-  _SessionToken: 'r:fc180157-b7b6-44a7-a5c7-e19d07cc187a'
+  _SessionToken: 'r:0265109a-f439-4b6d-8bbb-652a7d02705d'
 }
 
 function formatEventDate(dateStr) {
